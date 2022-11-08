@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    #'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'chats',
     'catalog',
+    'users'
 ]
 
 MIDDLEWARE = [
@@ -76,20 +77,21 @@ WSGI_APPLICATION = 'Application.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+#}
 
-#'default': {
-# 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-# 'NAME': 'postgres',
-# 'USER': 'postgres',
-# 'PASSWORD': '123',
-# 'HOST': '127.0.0.1',
-# 'PORT': 5432,
-# }
+    'default': {
+     'ENGINE': 'django.db.backends.postgresql_psycopg2',
+     'NAME': 'forum_db',
+     'USER': 'forum_user',
+     'PASSWORD': 'pass',
+     'HOST': '127.0.0.1',
+     'PORT': 5432,
+     }
+}
 
 
 # Password validation
@@ -109,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
+AUTH_USER_MODEL = 'users.User'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
